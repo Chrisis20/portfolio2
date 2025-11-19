@@ -316,6 +316,77 @@ body {
     box-shadow: 0 8px 40px rgba(217, 70, 239, 0.6);
 }
 
+/* Hero Social Links */
+.hero-social {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.social-label {
+    font-size: 0.9rem;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.hero-social-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.hero-social-link {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 50%;
+    color: var(--light-gray);
+    transition: all 0.3s ease;
+    background: rgba(168, 85, 247, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-social-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary-purple), var(--neon-purple));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero-social-link svg {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.hero-social-link:hover {
+    border-color: var(--primary-purple);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+}
+
+.hero-social-link:hover::before {
+    opacity: 1;
+}
+
+.hero-social-link:hover svg {
+    color: var(--white);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -826,6 +897,24 @@ body {
 @media (max-width: 768px) {
     .social-sidebar {
         display: none;
+    }
+
+    .hero-social {
+        margin-top: 2rem;
+    }
+
+    .hero-social-link {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-social-link svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .hero-social-links {
+        gap: 1rem;
     }
 
     .container-fluid {
