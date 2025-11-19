@@ -264,35 +264,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Typing effect
-const typingText = document.querySelector('.typing-text');
-if (typingText) {
-    const text = typingText.textContent;
-    typingText.textContent = '';
-    let charIndex = 0;
-
-    function typeText() {
-        if (charIndex < text.length) {
-            typingText.textContent += text.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeText, 100);
-        }
-    }
-
-    setTimeout(typeText, 500);
-}
-
-// Add glitch effect on hero title hover
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle) {
-    heroTitle.addEventListener('mouseenter', () => {
-        heroTitle.style.animation = 'none';
-        setTimeout(() => {
-            heroTitle.style.animation = '';
-        }, 10);
-    });
-}
-
 // Parallax scroll effect
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
