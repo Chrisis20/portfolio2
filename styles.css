@@ -526,6 +526,10 @@ body {
     background: var(--medium-gray);
     border: 1px solid rgba(168, 85, 247, 0.2);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Hardware acceleration for smooth performance */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 .gallery-item.large {
@@ -534,10 +538,10 @@ body {
 }
 
 .gallery-item:hover {
-    transform: translateY(-10px) scale(1.02);
     border-color: var(--primary-purple);
     box-shadow: 0 20px 60px rgba(168, 85, 247, 0.4);
     z-index: 10;
+    /* Transform handled by JavaScript for smooth 3D tilt */
 }
 
 .gallery-placeholder {

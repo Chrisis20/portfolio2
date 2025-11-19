@@ -145,8 +145,8 @@ function animateCounters() {
 
 // Intersection Observer for animations
 const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.1, // Trigger earlier for faster appearance
+    rootMargin: '0px 0px -50px 0px' // Reduced margin for earlier triggering
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -174,7 +174,9 @@ if (heroStats) observer.observe(heroStats);
 galleryItems.forEach((item, index) => {
     item.style.opacity = '0';
     item.style.transform = 'translateY(30px)';
-    item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+    // Faster stagger: 0.05s instead of 0.1s, max 3 items delay
+    const delay = Math.min(index * 0.05, 0.15);
+    item.style.transition = `opacity 0.4s ease ${delay}s, transform 0.4s ease ${delay}s`;
     observer.observe(item);
 });
 
@@ -354,8 +356,32 @@ document.addEventListener('mousemove', (e) => {
     }
 });
 
-// Enhanced gallery hover with tilt effect
+// Enhanced gallery hover with optimized tilt effect
 galleryItems.forEach(item => {
+    let tiltFrame = null;
+    let currentRotateX = 0;
+    let currentRotateY = 0;
+    let targetRotateX = 0;
+    let targetRotateY = 0;
+    let isHovering = false;
+
+    function updateTilt() {
+        // Smooth interpolation for fluid movement
+        currentRotateX += (targetRotateX - currentRotateX) * 0.1;
+        currentRotateY += (targetRotateY - currentRotateY) * 0.1;
+
+        if (isHovering) {
+            item.style.transform = `perspective(1000px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) translateY(-10px) scale(1.02)`;
+            tiltFrame = requestAnimationFrame(updateTilt);
+        }
+    }
+
+    item.addEventListener('mouseenter', () => {
+        isHovering = true;
+        item.style.willChange = 'transform';
+        updateTilt();
+    });
+
     item.addEventListener('mousemove', (e) => {
         const rect = item.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -364,14 +390,22 @@ galleryItems.forEach(item => {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-
-        item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+        // Reduced divisor for more subtle effect (30 instead of 20)
+        targetRotateX = (y - centerY) / 30;
+        targetRotateY = (centerX - x) / 30;
     });
 
     item.addEventListener('mouseleave', () => {
+        isHovering = false;
+        if (tiltFrame) {
+            cancelAnimationFrame(tiltFrame);
+        }
+        item.style.willChange = 'auto';
         item.style.transform = '';
+        currentRotateX = 0;
+        currentRotateY = 0;
+        targetRotateX = 0;
+        targetRotateY = 0;
     });
 });
 
