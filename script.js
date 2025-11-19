@@ -143,18 +143,6 @@ function animateCounters() {
     });
 }
 
-// Skill bars animation
-function animateSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-progress');
-
-    skillBars.forEach(bar => {
-        const progress = bar.getAttribute('data-progress');
-        setTimeout(() => {
-            bar.style.width = progress + '%';
-        }, 300);
-    });
-}
-
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.3,
@@ -169,11 +157,6 @@ const observer = new IntersectionObserver((entries) => {
                 observer.unobserve(entry.target);
             }
 
-            if (entry.target.classList.contains('skills-grid')) {
-                animateSkillBars();
-                observer.unobserve(entry.target);
-            }
-
             if (entry.target.classList.contains('gallery-item')) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
@@ -184,11 +167,9 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements
 const heroStats = document.querySelector('.hero-stats');
-const skillsGrid = document.querySelector('.skills-grid');
 const galleryItems = document.querySelectorAll('.gallery-item');
 
 if (heroStats) observer.observe(heroStats);
-if (skillsGrid) observer.observe(skillsGrid);
 
 galleryItems.forEach((item, index) => {
     item.style.opacity = '0';
