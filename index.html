@@ -145,81 +145,76 @@
                 Gallery
             </h2>
             <div class="gallery-grid">
-                <div class="gallery-item" data-category="digital">
+                <!-- Replace 'your-image.jpg' with your actual image paths -->
+                <div class="gallery-item" data-category="digital" data-image="images/artwork1.jpg" data-title="Artwork Title 1" data-description="Digital Art">
                     <div class="gallery-placeholder">
                         <span class="placeholder-text">Artwork 1</span>
                         <div class="item-glow"></div>
                     </div>
                     <div class="gallery-overlay">
                         <div class="overlay-content">
-                            <h3>Piece Title</h3>
+                            <h3>Artwork Title 1</h3>
                             <p>Digital Art</p>
-                            <button class="view-btn">View Details</button>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="illustration">
+                <div class="gallery-item" data-category="illustration" data-image="images/artwork2.jpg" data-title="Artwork Title 2" data-description="Illustration">
                     <div class="gallery-placeholder">
                         <span class="placeholder-text">Artwork 2</span>
                         <div class="item-glow"></div>
                     </div>
                     <div class="gallery-overlay">
                         <div class="overlay-content">
-                            <h3>Piece Title</h3>
+                            <h3>Artwork Title 2</h3>
                             <p>Illustration</p>
-                            <button class="view-btn">View Details</button>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item large" data-category="concept">
+                <div class="gallery-item large" data-category="concept" data-image="images/artwork3.jpg" data-title="Featured Artwork" data-description="Concept Art">
                     <div class="gallery-placeholder">
                         <span class="placeholder-text">Artwork 3</span>
                         <div class="item-glow"></div>
                     </div>
                     <div class="gallery-overlay">
                         <div class="overlay-content">
-                            <h3>Featured Piece</h3>
+                            <h3>Featured Artwork</h3>
                             <p>Concept Art</p>
-                            <button class="view-btn">View Details</button>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="character">
+                <div class="gallery-item" data-category="character" data-image="images/artwork4.jpg" data-title="Artwork Title 4" data-description="Character Design">
                     <div class="gallery-placeholder">
                         <span class="placeholder-text">Artwork 4</span>
                         <div class="item-glow"></div>
                     </div>
                     <div class="gallery-overlay">
                         <div class="overlay-content">
-                            <h3>Piece Title</h3>
+                            <h3>Artwork Title 4</h3>
                             <p>Character Design</p>
-                            <button class="view-btn">View Details</button>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="digital">
+                <div class="gallery-item" data-category="digital" data-image="images/artwork5.jpg" data-title="Artwork Title 5" data-description="Digital Art">
                     <div class="gallery-placeholder">
                         <span class="placeholder-text">Artwork 5</span>
                         <div class="item-glow"></div>
                     </div>
                     <div class="gallery-overlay">
                         <div class="overlay-content">
-                            <h3>Piece Title</h3>
+                            <h3>Artwork Title 5</h3>
                             <p>Digital Art</p>
-                            <button class="view-btn">View Details</button>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="illustration">
+                <div class="gallery-item" data-category="illustration" data-image="images/artwork6.jpg" data-title="Artwork Title 6" data-description="Illustration">
                     <div class="gallery-placeholder">
                         <span class="placeholder-text">Artwork 6</span>
                         <div class="item-glow"></div>
                     </div>
                     <div class="gallery-overlay">
                         <div class="overlay-content">
-                            <h3>Piece Title</h3>
+                            <h3>Artwork Title 6</h3>
                             <p>Illustration</p>
-                            <button class="view-btn">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -294,6 +289,22 @@
     <footer class="footer">
         <p>&copy; 2024 Phoenix. All rights reserved.</p>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

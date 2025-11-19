@@ -209,12 +209,57 @@ function animateOrbs() {
 
 animateOrbs();
 
-// Gallery item click handler
-document.querySelectorAll('.view-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        alert('Gallery detail view coming soon!');
+// Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxTitle = document.getElementById('lightbox-title');
+const lightboxDescription = document.getElementById('lightbox-description');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+// Open lightbox when clicking gallery items
+document.querySelectorAll('.gallery-item').forEach(item => {
+    // Set background image if data-image exists
+    const imageUrl = item.getAttribute('data-image');
+    if (imageUrl) {
+        const placeholder = item.querySelector('.gallery-placeholder');
+        placeholder.style.backgroundImage = `url('${imageUrl}')`;
+    }
+
+    item.addEventListener('click', () => {
+        const image = item.getAttribute('data-image');
+        const title = item.getAttribute('data-title');
+        const description = item.getAttribute('data-description');
+
+        if (image) {
+            lightboxImage.src = image;
+            lightboxTitle.textContent = title || 'Untitled';
+            lightboxDescription.textContent = description || '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
     });
+});
+
+// Close lightbox
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+// Close on background click
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+    }
 });
 
 // Typing effect
