@@ -367,8 +367,8 @@ body {
 /* Section Title */
 .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    margin-bottom: 3rem;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
     background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -380,15 +380,15 @@ body {
 
 .title-number {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--primary-purple);
-    margin-right: 1rem;
+    margin-right: 0.8rem;
     font-weight: 300;
 }
 
 /* About Section */
 .about {
-    padding: 4rem 0;
+    padding: 3rem 0;
     background: var(--dark-gray);
     position: relative;
     z-index: 2;
@@ -397,7 +397,7 @@ body {
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2.5rem;
     align-items: start;
 }
 
@@ -433,13 +433,13 @@ body {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .skill-card {
     background: var(--medium-gray);
-    padding: 2rem;
-    border-radius: 12px;
+    padding: 1.2rem;
+    border-radius: 10px;
     border: 1px solid rgba(168, 85, 247, 0.2);
     transition: all 0.3s ease;
     position: relative;
@@ -469,9 +469,9 @@ body {
 }
 
 .skill-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 1rem;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0.8rem;
     color: var(--primary-purple);
     transition: all 0.3s ease;
 }
@@ -488,23 +488,23 @@ body {
 
 .skill-card h3 {
     color: var(--white);
-    margin-bottom: 0.8rem;
-    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
     position: relative;
     z-index: 1;
 }
 
 .skill-card p {
     color: var(--light-gray);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.5;
     position: relative;
     z-index: 1;
 }
 
 /* Gallery Section */
 .gallery {
-    padding: 4rem 0;
+    padding: 3rem 0;
     background: var(--black);
     position: relative;
     z-index: 2;
@@ -633,7 +633,7 @@ body {
 
 /* Contact Section */
 .contact {
-    padding: 4rem 0;
+    padding: 3rem 0;
     background: var(--dark-gray);
     position: relative;
     z-index: 2;
@@ -642,8 +642,8 @@ body {
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-top: 2rem;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
 }
 
 .contact-intro {
